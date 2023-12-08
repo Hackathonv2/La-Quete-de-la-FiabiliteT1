@@ -25,18 +25,15 @@ except IndexError:
     print('input too short')
     exit(0)
     
-def find_machines(machines: list, key:str, depth: int):
-    if depth == 0:
-        return machines
+def find_machines(key:str):
     for value in graph[key]:
-        if value not in machines:
-            if depth == 1:
-                machines.append(value)
-            if value in graph:
-                machines = find_machines(machines, value, depth - 1)
+        machines = [key, value]
+        if value in graph:
+            for term in graph[value]:
+                if term not in machines:
+                    machines.append(term)
     return machines
 
 for key in graph:
-    machines = [key]
-    if len(find_machines(machines, key, 2)) >= nb_machines - 1:
+    if len(find_machines(key)) > nb_machines - 1:
         print(key)
