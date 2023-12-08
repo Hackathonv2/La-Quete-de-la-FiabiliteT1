@@ -1,0 +1,36 @@
+Transmissions sans fil
+
+En vue de limiter la redondance du réseau et ainsi réduire la charge des liaisons entre serveurs et routeurs et améliorer la capacité totale du réseau, vous décidez de mettre en place une architecture auxiliaire de réseau sans fil.
+
+Pour commencer avec un prototype et pour se prémunir de tout souci d'interférence, vous installez un unique routeur supplémentaire équipé d'une carte réseau sans fil. La portée de ce routeur définit naturellement une zone d'émission que l'on considère être un cercle autour du routeur et à l'intérieur duquel il est possible de communiquer avec les machines qui y sont présentes. La carte réseau présente un dispositif permettant de faire varier la taille de cette zone, néanmoins, une zone d'émission plus grande nécessite plus d'énergie pour faire fonctionner le routeur. Dans un souci d'économie, vous cherchez à trouver la taille minimale de la zone d'émission permettant tout de même de communiquer avec toutes les machines de votre centre de données.
+Données
+Entrée
+
+Ligne 1 : Un entier M représentant le nombre de machines dans votre centre de données
+
+Ligne 2 à M+1 : Deux entiers positifs x et y représentant la position d'une machine dans votre salle serveur.
+
+Deux machines ne peuvent avoir la même position. M est inclus entre 0 et 500. Les x et y sont inclus entre 0 et 1000.
+Sortie
+
+La plus petite aire possible de la zone d'émission du routeur permettant d'atteindre toutes les machines de votre réseau, arrondie à 5 chiffres après la virgule.
+
+(À des fins d'optimisation et de précision numérique, cette question peut être répondue sans jamais faire appel à une quelconque fonction racine carré.)
+Exemple
+
+Pour l'entrée :
+
+5
+1 1
+1 2
+2 1
+1 0
+0 1
+
+Votre programme devra renvoyer :
+
+3.14159
+
+Avec les positions données, un routeur placé en (1,1) avec une portée de 1 unité de distance est suffisant pour communiquer avec toutes les machines. Son aire d'effet est alors égale à pi.
+
+Attention, la position du nouveau routeur sans fil ainsi que sa portée ne sont pas nécessairement des valeurs entières comme dans l'exemple. Enfin, il est autorisé de le placer sur une position où une autre machine se trouve déjà.

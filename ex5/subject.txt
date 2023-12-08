@@ -1,0 +1,35 @@
+L'étrange système de stockage
+
+Au sein de votre centre de données, plusieurs serveurs peuvent avoir accès à un système de stockage commun. Pour y demander une certaine quantité de mémoire, le processus est assez particulier. Plutôt que de demander directement la quantité voulue, un serveur doit émettre une requête pour demander une certaine portion de la mémoire globale. Cette portion est déterminée par deux valeurs entre 0 et 1. Or, étant donné que plusieurs serveurs peuvent demander de la mémoire sur le système, il est fréquent qu'une partie du secteur demandé soit déjà allouée à un autre serveur. Pour éviter toute corruption, l'attribution de la mémoire suit les deux règles suivantes :
+
+    Un serveur ne peut se voir allouer seulement une portion de mémoire libre
+    Un serveur ne peut libérer seulement les portions de mémoire qui lui appartiennent
+
+Avec ce processus, il peut donc arriver qu'un serveur se voit allouer plusieurs sous-secteurs de celui demandé initialement si certaines parties de ce dernier étaient déjà allouées à d'autres.
+
+Votre infrastructure étant particulièrement grande, trouvez un moyen de gérer efficacement le grand nombre de requêtes qui vous arrivent.
+Données
+Entrée
+
+Ligne 1 : Trois entiers P, S et R représentant respectivement la précision des nombres qui vous sont donnés, le nombre de serveurs différents pouvant faire une requête et le nombre de requêtes.
+
+Ligne 2 à R+1 : Quatre valeurs numériques id,a, b et t. id est l'identifiant du serveur faisant la requête, c'est un entier compris entre 0 et S-1. a et b sont deux nombres flottants, avec P chiffres après la virgules, représentant les bornes de la mémoire demandée. t est le type de requête : 1 si c'est une demande d'allocation, 0 si c'est une demande de libération de mémoire.
+
+P est compris entre 2 et 12 inclus. S est compris entre 2 et 100 inclus. R est compris entre 1 et 20000 inclus.
+Sortie
+
+L'identifiant du système ayant le plus de mémoire à la suite des requêtes. Il n'y aura jamais d'égalité.
+Exemple
+
+Pour l'entrée :
+
+2 2 3
+0 0.43 0.76 1
+1 0.38 0.83 1
+0 0.49 0.97 0
+
+Votre programme devra renvoyer :
+
+1
+
+À la fin de la première requête, le serveur 0 aura la possession du secteur 0.43 à 0.76. À la fin de la deuxième requête le serveur 0 aura toujours la possession du secteur 0.43 à 0.76 et le serveur 1 aura la possession de deux secteurs distincts, l'un de 0.38 à 0.43 et l'autre de 0.76 à 0.83. Ce dernier n'a pas pu prendre possession du secteur 0.43 à 0.76 étant donné qu'il appartenait déjà au serveur 0. À la fin de la troisième requête, le serveur 0 aura la possession du secteur 0.43 à 0.49 et le serveur 1 aura toujours la possession de ses deux mêmes secteurs étant donné que le serveur 0 n'a pas pu libérer la portion de 0.76 à 0.83 puisqu'elle ne lui appartenait pas. Après la résolution de toutes les requêtes, Le serveur 0 a alloué 6% de la mémoire totale alors que le serveur 1 en a alloué 12%.

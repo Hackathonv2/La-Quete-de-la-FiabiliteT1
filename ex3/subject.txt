@@ -1,0 +1,45 @@
+Atténuation des défaillances II
+
+Malheur, tous les serveurs et systèmes de stockage de votre centre de données sont tombés en panne en même temps !
+
+Toujours dans une optique de fiabilité et afin d'assurer une disponibilité optimale, vous exécutez un examen un peu plus approfondi des défaillances de vos machines et vous vous rendez compte que la fréquence des pannes n'est pas qu'une question matérielle comme vous l'aviez supposé mais dépend de bien plus de facteurs, comme le taux de charge, les défauts d'alimentations, les pannes d'équipements et d'autres.
+
+Afin de connaitre quand sera la prochaine panne générale, vous déterminez pour chaque machine individuellement le nombre de jours entre deux défaillances. Si trois machines tombent en panne respectivement tous les 2 jours, tous les 4 jours et tous les 6 jours, elles seront à nouveau en panne en même temps dans 12 jours.
+
+Par chance, vous réussissez à trouver un moyen de retarder le temps entre deux défaillances d'une machine de 1 jour. Seulement, cette solution étant assez onéreuse, vous ne pouvez l'appliquer qu'à une seule des machines de votre centre de données.
+
+Trouvez la machine pour laquelle il est le plus rentable d'allonger le temps entre deux pannes, à savoir celle pour laquelle la prochaine panne générale arrive dans le plus longtemps si on lui ajoute 1 jour.
+Données
+Entrée
+
+Ligne 1 : Un entier M représentant le nombre de machines
+
+Ligne 2: M entiers p_i représentant à l'indice i le nombre de jours entre chaque panne de la machine i
+
+M est compris entre 1 et 10 inclus et chaque p_i est compris entre 1 et 20 inclus.
+Sortie
+
+L'indice de la machine pour laquelle la prochaine panne générale est la plus éloignée si on lui ajoute 1 jour entre chacune de ses pannes. Si plusieurs machines sont à égalité en renverra celle avec l'indice le plus petit. Si aucune machine ne permet de prolonger le temps avant la prochaine panne générale, on renverra -1.
+Exemple
+
+Pour l'entrée :
+
+3
+2 4 6
+
+Votre programme devra renvoyer :
+
+1
+
+En l'état, les pannes simultanées adviennent tous les 12 jours. Si l'on augmente la première machine, ce temps reste à 12 jours, si l'on augmente la deuxième, le temps passe à 30 jours alors que si l'on augmente la dernière, le temps passe à 28 jours. Il est alors préférable d'augmenter la machine à l'indice 1.
+
+Pour l'entrée :
+
+2
+2 3
+
+Votre programme devra renvoyer :
+
+-1
+
+En l'état, les pannes simultanées adviennent tous les 6 jours. Si l'on augmente la première machine, ce temps passe à 3 jours et si l'on augmente la seconde, il passe à 4. Il est alors préférable de ne toucher aucune machine.

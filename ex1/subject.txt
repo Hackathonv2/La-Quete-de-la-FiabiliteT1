@@ -1,0 +1,38 @@
+Atténuation des défaillances
+
+Vous avez la charge d'un centre de données et en tant que tel, vous vous devez d'assurer une fiabilité et une sécurité exemplaire. Cependant, avec une infrastructure aussi complexe, vous devrez nécessairement faire face à certains problèmes. Bon courage !
+
+Pour partir sur de bonnes bases, vous commencez par vous intéresser à la fiabilité des systèmes de stockage présents sur votre réseau. Vous disposez de deux types de systèmes différents et voulez uniformiser votre centre de données en ne gardant que les systèmes de stockage du type le plus fiable. Après un examen minutieux de chacun des deux, vous relevez trois critères permettant de les différencier : le nombre moyen de pannes par mois, le temps moyen de la panne et le temps moyen nécessaire au redémarrage du système. Si un système de stockage est en panne 2 fois par mois, que la panne dure 3 heures et qu'il faut 4 heures pour le reconnecter au système, il sera indisponible en moyenne 14 heures par mois.
+
+À partir de ces données, trouvez le type de système de stockage minimisant le temps de panne par mois.
+Données
+Entrée
+
+Lignes 1 et 2: Une chaîne de caractère n suivie de trois entiers f,p et r. La chaîne n représente le nom du système et est toujours constituée de trois lettres en minuscules, l'entier f représente le nombre moyen de pannes par mois, p représente le temps moyen, en heures, pendant lequel la machine reste en panne et r représente le temps moyen nécessaire pour réparer et redémarrer le système.
+
+f,p et r sont tous compris entre 1 et 20 inclus.
+Sortie
+
+Le nom du système de stockage étant en moyenne le moins en panne. Nous assumerons qu'il n'y aura jamais d'égalité.
+Exemple
+
+Pour l'entrée :
+
+aaa 2 1 1
+bbb 1 1 2
+
+Votre programme devra renvoyer :
+
+bbb
+
+Le système aaa sera en panne en moyenne 4 heures par mois tandis que le système bbb le sera en moyenne 3 heures par mois.
+
+Pour l'entrée :
+
+pko 1 10 1
+msl 2 3 3
+
+Votre programme devra renvoyer :
+
+pko
+
